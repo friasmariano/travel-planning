@@ -5,14 +5,14 @@
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                     <div class="sidebar-sticky">
                         <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <router-link to="/" class="nav-link">Home</router-link>
+                            <li class="nav-item btn btn-light">
+                                <router-link to="/" class="nav-link"> <i class="fa-solid fa-house"></i> Home</router-link>
                             </li>
-                            <li class="nav-item">
-                                <router-link to="/about" class="nav-link">About</router-link>
+                            <li class="nav-item btn btn-light">
+                                <router-link to="/about" class="nav-link"><i class="fa-solid fa-circle-info"></i> About</router-link>
                             </li>
-                            <li class="nav-item">
-                                <router-link to="/contact" class="nav-link">Contact</router-link>
+                            <li class="nav-item btn btn-light">
+                                <router-link to="/contact" class="nav-link"><i class="fa-solid fa-id-card-clip"></i> Contact</router-link>
                             </li>
                         </ul>
                     </div>
@@ -49,6 +49,14 @@ export default {
     padding-top: .5rem;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.nav-item {
+    text-align: left;
+}
+
+i {
+    margin-right: 5px;
 }
 
 @media (max-width: 767.98px) {
