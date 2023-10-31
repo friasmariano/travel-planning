@@ -1,11 +1,10 @@
 <template>
     <Teleport to="body">
         <header>
-            Header
+            <navbar />
         </header>
         <aside>
-            Aside
-            <nav></nav>
+            <sidebar />
         </aside>
         <section class="banner">
             <banner />

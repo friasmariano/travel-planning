@@ -34,9 +34,9 @@ export default {
 <style lang="scss" scoped>
 .sidebar {
     position: fixed;
-    top: 56px;
-    bottom: 0;
-    left: 0;
+    // top: 56px;
+    // bottom: 0;
+    // left: 0;
     z-index: 100;
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
