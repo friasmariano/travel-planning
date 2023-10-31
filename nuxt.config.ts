@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     port: 8000
   },
 
+  css: ['~/assets/scss/main.scss'],
+
   app: {
     head: {
       script: [
