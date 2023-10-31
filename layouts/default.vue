@@ -9,8 +9,10 @@
         <section class="banner">
             <banner />
         </section>
-        <main class="content">Main content
+        <main class="content">
+            <slot />
         </main>
+        
         <footer>Footer</footer>
     </Teleport>
 </template>
