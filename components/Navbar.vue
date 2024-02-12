@@ -5,8 +5,7 @@
                     <div class="flex h-16 items-center justify-between">
                         <div class="flex items-center">
                             <div class="flex-shrink-0">
-                                <!-- <NuxtImg src="~/assets/images/logo.png" /> -->
-                                <!-- <img class="h-8 w-8" :src="require(`~/assets/images/logo.png`)" alt="Your Company"> -->
+                                <img class="h-8 w-8" src="~/assets/images/logo.png" alt="Logo">
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
