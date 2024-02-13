@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0px;
+
+    grid-template-areas: 
+        "header header header"
+        "aside banner banner"
+        "aside main main"
+        "footer footer footer";
+
+    grid-template-rows: auto auto 1fr auto;
+    
+    height: 100vh;
+}
