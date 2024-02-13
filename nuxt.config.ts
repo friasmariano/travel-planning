@@ -7,5 +7,6 @@ export default defineNuxtConfig({
       tailwindcss: {},
       autoprefixer: {},
     },
-  }
+  },
+  plugins: ['~/plugins/fontawesome.js']
 })
