@@ -1,21 +1,14 @@
 <template>
     <div>
         <nav class="bg-gray-800">
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex h-16 items-center justify-between">
                         <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <img class="h-8 w-8" src="~/assets/images/logo.png" alt="Logo">
-                            </div>
+                            <img class="h-10 w-10" src="~/assets/images/logo.png" alt="Logo">
+                            <p class="branding-text">Travel Planner</p>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Home</a>
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Profile</a>
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Destinations</a>
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Itinerary</a>
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Weather</a>
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Recommendations</a>
                                 </div>
                             </div>
                         </div>
@@ -86,5 +79,12 @@
 </script>
 
 <style lang="scss" scoped>
+.branding-text {
+    margin-left: 7px;
 
+    color: white;
+
+    font-size: 1.2rem;
+    font-weight: 500;
+}
 </style>
