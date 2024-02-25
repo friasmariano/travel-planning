@@ -37,6 +37,8 @@ header {
 
     grid-column-start: 1;
     grid-column-end: 13;
+
+    position: sticky;
 }
 
 
