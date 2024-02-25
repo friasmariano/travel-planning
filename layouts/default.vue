@@ -1,21 +1,21 @@
 <template>
     <div>
         <Teleport to="body">
-        <header>
-            <Navbar />
-        </header>
-        <aside>
-            <Sidebar />
-        </aside>
-        <section class="banner">
-            <Banner />
-        </section>
-        <main class="content">
-            <slot />
-        </main>
-        
-        <!-- <footer>Footer</footer> -->
-    </Teleport>
+            <header>
+                <Navbar />
+            </header>
+            <aside>
+                <Sidebar />
+            </aside>
+            <section class="banner">
+                <Banner />
+            </section>
+            <main class="content">
+                <slot />
+            </main>
+            
+            <footer>Footer</footer>
+        </Teleport>
     </div>
 </template>
 
@@ -46,11 +46,10 @@ aside {
     color: hsl(192, 0%, 80%);
 
     grid-row-start: 2;
-    grid-row-end: 12;
+    grid-row-end: 5;
 
     grid-column-start: 1;
     grid-column-end: 2;
-
 }
 
 .banner {
@@ -79,6 +78,7 @@ main {
     grid-column-start: 2;
     grid-column-end: 13;
 
+    // max-height: 50vh;
 }
 
 footer {

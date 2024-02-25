@@ -42,7 +42,7 @@
 }
 
 .sidebar {
-    height: 100vh;
+    height: 90vh;
     width: 300px;
 
     padding-left: 2px;
