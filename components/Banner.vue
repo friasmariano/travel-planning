@@ -11,9 +11,7 @@
 </script>
 
 <style lang="scss" scoped>
-.banner {
-    margin-top: 60px;
-
-    height: 250px;
+.banner2 {
+    font-size: 1.3rem;
 }
 </style>
