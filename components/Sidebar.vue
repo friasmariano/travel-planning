@@ -98,7 +98,7 @@
     margin-bottom: 32px;
 
     // color: rgb(10, 73, 91);
-    color: rgba(15, 95, 117, 0.7);
+    color: rgba(15, 95, 117, 0.9);
 
     background-color: rgb(244, 244, 244);
     border-radius: 0px 32px 32px 0px;
