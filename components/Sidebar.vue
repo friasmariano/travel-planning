@@ -2,6 +2,7 @@
   <div class="sidebar">
     <button
       class="button"
+      :class="{ 'active-route': route.path === '/'}"
       @mouseover="filledHomeIcon"
       @mouseleave="regularHomeIcon"
     >
@@ -53,6 +54,7 @@
 
 <script>
 import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default {
     setup() {
@@ -83,9 +85,7 @@ export default {
 
             setIcons();
 
-            console.log('Width: ' + currentWidth.value);
-
-
+            console.log(route);
         })
 
         onBeforeUnmount(() => {
@@ -164,6 +164,8 @@ export default {
             setIcons()
         })
 
+        const route = useRoute();
+
         return {
             homeIcon,
             profileIcon,
@@ -187,7 +189,8 @@ export default {
             filledWeatherIcon,
             regularWeatherIcon,
             filledRecommendationsIcon,
-            regularRecommendationsIcon
+            regularRecommendationsIcon,
+            route
         }
     }
 }
@@ -215,6 +218,21 @@ export default {
   color: white;
   // background-color: rgb(189, 189, 189);
   background: linear-gradient(
+    to left,
+    rgb(10, 73, 91),
+    rgb(19, 123, 151),
+    rgb(28, 165, 203)
+  );
+
+  font-weight: 600;
+
+  box-shadow: 0px 1px 8px 0px rgba(53, 53, 53, 0.4);
+}
+
+.active-route {
+    color: white;
+
+    background: linear-gradient(
     to left,
     rgb(10, 73, 91),
     rgb(19, 123, 151),
