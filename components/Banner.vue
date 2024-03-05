@@ -1,6 +1,6 @@
 <template>
     <div class="banner">
-        This is the Banner
+        <img src="~/assets/images/banner.jpg" alt="Logo">
     </div>
 </template>
 
