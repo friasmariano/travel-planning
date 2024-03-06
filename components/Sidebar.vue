@@ -3,6 +3,7 @@
     <button
       class="button"
       :class="{ 'active-route': route.path === '/'}"
+      @click="goHome"
       @mouseover="filledHomeIcon"
       @mouseleave="regularHomeIcon"
     >
@@ -12,6 +13,7 @@
 
     <button
       class="button"
+      @click="goProfile"
       :class="{ 'active-route': route.path === '/profile'}"
       @mouseover="filledProfileIcon"
       @mouseleave="regularProfileIcon"
@@ -22,6 +24,7 @@
 
     <button
       class="button"
+      @click="goDestinations"
       :class="{ 'active-route': route.path === '/destinations'}"
       @mouseover="filledDestinationsIcon"
       @mouseleave="regularDestinationsIcon"
@@ -32,6 +35,7 @@
 
     <button
       class="button"
+      @click="goItinerary"
       :class="{ 'active-route': route.path === '/itinerary'}"
       @mouseover="filledItineraryIcon"
       @mouseleave="regularItineraryIcon"
@@ -42,6 +46,7 @@
 
     <button
       class="button"
+      @click="goWeather"
       :class="{ 'active-route': route.path === '/weather'}"
       @mouseover="filledWeatherIcon"
       @mouseleave="regularWeatherIcon"
@@ -52,6 +57,7 @@
 
     <button
       class="button"
+      @click="goRecommendations"
       :class="{ 'active-route': route.path === '/recommendations'}"
       @mouseover="filledRecommendationsIcon"
       @mouseleave="regularRecommendationsIcon"
@@ -64,7 +70,7 @@
 
 <script>
 import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 export default {
     setup() {
@@ -78,6 +84,9 @@ export default {
         let currentWidth = ref(0);
         let currentHeight = ref(0);
 
+        const route = useRoute();
+        const router = useRouter();
+
         const trackSize = () => {
             currentWidth.value = window.innerWidth;
             currentHeight.value = window.innerHeight;
@@ -87,12 +96,41 @@ export default {
             trackSize();
         }
 
+        // Routing
+        const goHome = () => {
+          router.push('/')
+        }
+
+        const goProfile = () => {
+          router.push('/profile')
+        }
+
+        const goDestinations = () => {
+          router.push('/destinations')
+        }
+
+        const goItinerary = () => {
+          router.push('/itinerary')
+        }
+
+        const goWeather = () => {
+          router.push('/weather')
+        }
+
+        const goRecommendations = () => {
+          router.push('/recommendations')
+        }
+
+        /////////////////////////////////////////////////////
+
         onMounted(() => {
             window.addEventListener('resize', onResize);
             
             trackSize();
 
             setIcons();
+
+            setIconsByRoute();
         })
 
         onBeforeUnmount(() => {
@@ -122,7 +160,7 @@ export default {
             destinationsIcon.value = "bi bi-pin-map-fill";
         }
         const regularDestinationsIcon = () => {
-            destinationsIcon.value = "bi bi-pin-map";
+          if (route.path !== '/destinations') destinationsIcon.value = "bi bi-pin-map";
         }
 
         // Itinerary icon
@@ -130,7 +168,7 @@ export default {
             itineraryIcon.value = "bi bi-calendar-event-fill";
         }
         const regularItineraryIcon = () => {
-            itineraryIcon.value = "bi bi-calendar4-event";
+            if (route.path !== '/itinerary') itineraryIcon.value = "bi bi-calendar4-event";
         }
 
         // Weather icon
@@ -138,7 +176,7 @@ export default {
             weatherIcon.value = "bi bi-cloud-sun-fill";
         }
         const regularWeatherIcon = () => {
-            weatherIcon.value = "bi bi-cloud-sun";
+            if (route.path !== '/weather') weatherIcon.value = "bi bi-cloud-sun";
         }
 
         // Recommendations icon
@@ -146,39 +184,27 @@ export default {
             recommendationsIcon.value = "bi bi-lightbulb-fill";
         }
         const regularRecommendationsIcon = () => {
-            recommendationsIcon.value = "bi bi-lightbulb";
+            if (route.path !== '/recommendations') recommendationsIcon.value = "bi bi-lightbulb";
         }
+
+        const setFilledIcons = () => {
+            filledHomeIcon()
+            filledProfileIcon()
+            filledDestinationsIcon()
+            filledItineraryIcon()
+            filledWeatherIcon()
+            filledRecommendationsIcon()
+        }
+
 
         const setIcons = () => {
             if (currentWidth.value <= 600) {
-                filledHomeIcon()
-                filledProfileIcon()
-                filledDestinationsIcon()
-                filledItineraryIcon()
-                filledWeatherIcon()
-                filledRecommendationsIcon()
+                setFilledIcons()
 
                 isSmall.value = true
             } else {
-              if (route.path === '/') filledHomeIcon()
-              else regularHomeIcon()
-                
-              if (route.path === '/profile') filledProfileIcon()
-              else regularProfileIcon()
-
-              if (route.path === '/destinations') filledDestinationsIcon()
-              else regularDestinationsIcon()
-
-              if (route.path === '/itinerary') filledItineraryIcon()
-              else regularItineraryIcon()
-
-              if (route.path === '/weather') filledWeatherIcon()
-              else regularWeatherIcon()
-
-              if (route.path === '/recommendations') filledRecommendationsIcon()
-              else regularRecommendationsIcon()
-
                 isSmall.value = false
+                setIconsByRoute()
             }
         }
 
@@ -186,12 +212,33 @@ export default {
           setIcons()
         })
 
-        const route = useRoute();
+        const setIconsByRoute = () => {
+          if (route.path === '/') filledHomeIcon()
+          else regularHomeIcon()
+            
+          if (route.path === '/profile') filledProfileIcon()
+          else regularProfileIcon()
 
-        let isHome = ref(false);
+          if (route.path === '/destinations') filledDestinationsIcon()
+          else regularDestinationsIcon()
+
+          if (route.path === '/itinerary') {
+            filledItineraryIcon()
+          }
+          else regularItineraryIcon()
+
+          if (route.path === '/weather') filledWeatherIcon()
+          else regularWeatherIcon()
+
+          if (route.path === '/recommendations') filledRecommendationsIcon()
+          else regularRecommendationsIcon()
+        }
+
+        watch(route, (newValue) => {
+          setIconsByRoute()
+        })
 
         return {
-            isHome,
             homeIcon,
             profileIcon,
             destinationsIcon,
@@ -202,8 +249,16 @@ export default {
             onBeforeUnmount,
             isSmall,
             trackSize,
+            setFilledIcons,
             onResize,
             filledHomeIcon,
+            goHome,
+            goProfile,
+            goDestinations,
+            setIconsByRoute,
+            goItinerary,
+            goWeather,
+            goRecommendations,
             regularHomeIcon,
             filledProfileIcon,
             regularProfileIcon,

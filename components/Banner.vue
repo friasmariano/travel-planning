@@ -1,15 +1,30 @@
 <template>
     <div class="banner banner-background">
         <div class="text-container"> 
-            <p class="title">Welcome</p>
-            <p class="subtitle">This is the main page</p>
+            <p class="title">
+                <span v-if="route.path === '/'">Home</span>
+                <span v-if="route.path === '/profile'">Profile</span>
+                <span v-if="route.path === '/destinations'">Destinations</span>
+                <span v-if="route.path === '/itinerary'">Itinerary</span>
+                <span v-if="route.path === '/weather'">Weather</span>
+                <span v-if="route.path === '/recommendations'">Recommendations</span>
+            </p>
+            <p class="subtitle">Lorem ipsum</p>
         </div>
     </div>
 </template>
 
 <script>
+    import { useRoute } from 'vue-router'
+
     export default {
-        
+        setup() {
+            const route = useRoute()
+
+            return {
+                route
+            }
+        }
     }
 </script>
 
