@@ -9,40 +9,50 @@
       <i :class="homeIcon" style="margin-right: 5px"></i>
       <span class="button-text">Home</span>
     </button>
+
     <button
       class="button"
+      :class="{ 'active-route': route.path === '/profile'}"
       @mouseover="filledProfileIcon"
       @mouseleave="regularProfileIcon"
     >
       <i :class="profileIcon" style="margin-right: 5px"></i>
       <span class="button-text">Profile</span>
     </button>
+
     <button
       class="button"
+      :class="{ 'active-route': route.path === '/destinations'}"
       @mouseover="filledDestinationsIcon"
       @mouseleave="regularDestinationsIcon"
     >
       <i :class="destinationsIcon" style="margin-right: 5px"></i>
       <span class="button-text">Destinations</span>
     </button>
+
     <button
       class="button"
+      :class="{ 'active-route': route.path === '/itinerary'}"
       @mouseover="filledItineraryIcon"
       @mouseleave="regularItineraryIcon"
     >
       <i :class="itineraryIcon" style="margin-right: 5px"></i>
       <span class="button-text">Itinerary</span>
     </button>
+
     <button
       class="button"
+      :class="{ 'active-route': route.path === '/weather'}"
       @mouseover="filledWeatherIcon"
       @mouseleave="regularWeatherIcon"
     >
       <i :class="weatherIcon" style="margin-right: 5px"></i>
       <span class="button-text">Weather</span>
     </button>
+
     <button
       class="button"
+      :class="{ 'active-route': route.path === '/recommendations'}"
       @mouseover="filledRecommendationsIcon"
       @mouseleave="regularRecommendationsIcon"
     >
@@ -79,13 +89,10 @@ export default {
 
         onMounted(() => {
             window.addEventListener('resize', onResize);
-            // setIcons();
             
             trackSize();
 
             setIcons();
-
-            console.log(route);
         })
 
         onBeforeUnmount(() => {
@@ -99,7 +106,7 @@ export default {
             homeIcon.value = "bi bi-house-fill";
         }
         const regularHomeIcon = () => {
-            homeIcon.value = "bi bi-house";
+          if (route.path !== '/') homeIcon.value = "bi bi-house";
         }
 
         // Profile icon
@@ -107,7 +114,7 @@ export default {
             profileIcon.value = "bi bi-person-fill";
         }
         const regularProfileIcon = () => {
-            profileIcon.value = "bi bi-person";
+          if (route.path !== '/profile') profileIcon.value = "bi bi-person";
         }
 
         // Destinations icon
@@ -150,23 +157,41 @@ export default {
                 filledItineraryIcon()
                 filledWeatherIcon()
                 filledRecommendationsIcon()
+
+                isSmall.value = true
             } else {
-                regularHomeIcon()
-                regularProfileIcon()
-                regularDestinationsIcon()
-                regularItineraryIcon()
-                regularWeatherIcon()
-                regularRecommendationsIcon()
+              if (route.path === '/') filledHomeIcon()
+              else regularHomeIcon()
+                
+              if (route.path === '/profile') filledProfileIcon()
+              else regularProfileIcon()
+
+              if (route.path === '/destinations') filledDestinationsIcon()
+              else regularDestinationsIcon()
+
+              if (route.path === '/itinerary') filledItineraryIcon()
+              else regularItineraryIcon()
+
+              if (route.path === '/weather') filledWeatherIcon()
+              else regularWeatherIcon()
+
+              if (route.path === '/recommendations') filledRecommendationsIcon()
+              else regularRecommendationsIcon()
+
+                isSmall.value = false
             }
         }
 
-        watch(currentWidth, (newValue, oldValue) => {
-            setIcons()
+        watch(currentWidth, (newValue) => {
+          setIcons()
         })
 
         const route = useRoute();
 
+        let isHome = ref(false);
+
         return {
+            isHome,
             homeIcon,
             profileIcon,
             destinationsIcon,
