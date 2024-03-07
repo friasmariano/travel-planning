@@ -3,6 +3,7 @@
         <Teleport to="body">
             <header>
                 <Navbar />
+                <BurgerMenu />
             </header>
             <aside>
                 <Sidebar />
