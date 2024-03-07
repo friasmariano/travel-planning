@@ -13,42 +13,6 @@ html, body {
     font-family: Inter, sans-serif;
 }
 
-@media (max-width: 600px) {
-    body {
-        margin: 0;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 0px;
-    
-        grid-template-areas: 
-            "header header header"
-            "banner banner"
-            "main main"
-            "footer footer footer";
-    
-        grid-template-rows: auto auto 1fr auto auto;
-    
-    }
-}
-
-@media (min-width: 601px) {
-    body {
-        margin: 0;
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 0px;
-    
-        grid-template-areas: 
-            "header header header"
-            "aside banner banner"
-            "aside main main"
-            "footer footer footer";
-    
-        grid-template-rows: auto auto 1fr auto auto;
-    
-    }
-}
-
 header {
     grid-area: header;
     /* background-color: #18667a; */
@@ -77,12 +41,6 @@ aside {
     grid-column-end: 2;
 }
 
-@media (max-width: 600px) {
-    aside {
-        width: 100px;
-    }
-}
-
 .banner {
     grid-area: banner;
     /* background-color: #18667a; */
@@ -98,7 +56,7 @@ aside {
 
     /* margin-top: 60px; */
 
-    height: 400px;
+    height: 320px;
 
     /* background-color: grey; */
 }
@@ -106,7 +64,7 @@ aside {
 main {
     grid-area: content;
 
-    color: hsl(192, 0%, 80%);
+    /* color: hsl(192, 0%, 80%); */
     border-top: 1.5px solid hsl(192, 0%, 86%);
 
     grid-row-start: 3;
@@ -128,4 +86,67 @@ footer {
 
     grid-row-start: 4;
     grid-row-end: 5;
+}
+
+
+@media (max-width: 600px) {
+    aside {
+        width: 100px;
+    }
+
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 0px;
+    
+        grid-template-areas: 
+            "header header header"
+            "banner banner"
+            "main main"
+            "footer footer footer";
+    
+        grid-template-rows: auto auto 1fr auto auto;
+    
+    }
+
+    .banner {
+        height: 250px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .banner {
+        height: 250px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1279px) {
+    .banner {
+        height: 300px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .banner {
+        height: 320px;
+    }
+}
+
+@media (min-width: 601px) {
+    body {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 0px;
+    
+        grid-template-areas: 
+            "header header header"
+            "aside banner banner"
+            "aside main main"
+            "footer footer footer";
+    
+        grid-template-rows: auto auto 1fr auto auto;
+    
+    }
 }

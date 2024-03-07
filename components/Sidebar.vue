@@ -198,7 +198,7 @@ export default {
 
 
         const setIcons = () => {
-            if (currentWidth.value <= 600) {
+            if (currentWidth.value <= 1024) {
                 setFilledIcons()
 
                 isSmall.value = true
@@ -344,7 +344,7 @@ export default {
   display: inline-block;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
   .sidebar {
     width: 100px;
   }

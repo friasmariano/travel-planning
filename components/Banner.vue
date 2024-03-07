@@ -91,4 +91,74 @@
 
     margin-left: 30px;
 }
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
+    .text-container {
+        padding-left: 0px;
+        height: 250px;
+    }
+} 
+
+@media (min-width: 601px) and (max-width: 768px) {
+    .title {
+        font-size: 2.3rem;
+    }
+    .subtitle {
+        font-size: 1.3rem;
+    }
+    .text-container {
+        padding-left: 0px;
+        height: 250px;
+    }
+} 
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .title {
+        font-size: 2.3rem;
+    }
+    .subtitle {
+        font-size: 1.3rem;
+    }
+    .text-container {
+        padding-left: 0px;
+        height: 250px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1279px) {
+    .title {
+        font-size: 2.8rem;
+    }
+    .subtitle {
+        font-size: 1.3rem;
+    }
+    .text-container {
+        padding-left: 0px;
+        height: 300px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .title {
+        font-size: 3rem;
+    }
+    .subtitle {
+        font-size: 1.66rem;
+    }
+    .text-container {
+        padding-left: 0px;
+        height: 320px;
+    }
+    .banner-background {
+        background-image: url('~/assets/images/banner-3.png');
+        background-position: center top;
+    }
+}
+
 </style>
