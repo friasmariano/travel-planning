@@ -106,6 +106,12 @@ footer {
     background: linear-gradient(to top, rgb(216, 216, 216), rgb(255, 255, 255));
 }
 
+.is-red {
+    color: hsl(0, 0%, 98%);
+    background: linear-gradient(to top, rgb(172, 20, 20), rgb(217, 20, 20));
+    /* background-color: teal; */
+}
+
 @media (max-width: 600px) {
     aside {
         width: 100px;

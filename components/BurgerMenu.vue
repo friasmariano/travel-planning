@@ -11,6 +11,10 @@
             <!-- <div class="separator"></div> -->
             <div class="actions-list">
                 <button class="c-button is-light">
+                    <i class="bi bi-body-text" style="margin-right: 5px;"></i>
+                    Activity Log
+                </button>
+                <button class="c-button is-red" style="margin-top: 35px;">
                     <i class="bi bi-box-arrow-in-left" style="margin-right: 5px;"></i>
                     Logout
                 </button>
@@ -34,7 +38,7 @@
 
 .burger-menu {
     width: 285px; 
-    height: 287px; 
+    height: 260px; 
     background-color: whitesmoke;
     
     position: fixed;
@@ -44,7 +48,7 @@
     border-radius: 0px 0px 20px 20px;
     
     padding-left: 0px;
-    padding-top: 15px;
+    padding-top: 20px;
 
     box-shadow: 0px 1px 20px 0px rgba(53, 53, 53, 0.3);
 
@@ -78,8 +82,10 @@
     align-items: center; 
     justify-content: center; 
     
+    gap: 9px;
+
     flex-direction: column;
 
-    padding-top: 28px;
+    padding-top: 37px;
 }
 </style>
