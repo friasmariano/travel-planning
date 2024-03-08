@@ -98,12 +98,18 @@ footer {
 
     padding: 5px 30px 5px 30px;
 
-    box-shadow: 0px 3px 10px 0px rgba(53, 53, 53, 0.05);
+    box-shadow: 0px 3px 8px 0px rgba(53, 53, 53, 0.3);
 }
 
 .is-light {
     color: hsl(217, 0%, 40%);
     background: linear-gradient(to top, rgb(216, 216, 216), rgb(255, 255, 255));
+}
+
+.is-blue {
+    color: hsl(0, 0%, 98%);
+    background: linear-gradient(to top, rgb(15, 106, 158), rgb(25, 201, 250));
+    /* background-color: teal; */
 }
 
 .is-red {

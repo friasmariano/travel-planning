@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <button
+    <!-- <button
       class="button"
       :class="{ 'active-route': route.path === '/'}"
       @click="goHome"
@@ -9,12 +9,12 @@
     >
       <i :class="homeIcon" style="margin-right: 5px"></i>
       <span class="button-text">Home</span>
-    </button>
+    </button> -->
 
     <button
       class="button"
       @click="goProfile"
-      :class="{ 'active-route': route.path === '/profile'}"
+      :class="{ 'active-route': route.path === '/'}"
       @mouseover="filledProfileIcon"
       @mouseleave="regularProfileIcon"
     >
@@ -102,7 +102,7 @@ export default {
         }
 
         const goProfile = () => {
-          router.push('/profile')
+          router.push('/')
         }
 
         const goDestinations = () => {
@@ -152,7 +152,7 @@ export default {
             profileIcon.value = "bi bi-person-fill";
         }
         const regularProfileIcon = () => {
-          if (route.path !== '/profile') profileIcon.value = "bi bi-person";
+          if (route.path !== '/') profileIcon.value = "bi bi-person";
         }
 
         // Destinations icon
@@ -213,10 +213,10 @@ export default {
         })
 
         const setIconsByRoute = () => {
-          if (route.path === '/') filledHomeIcon()
-          else regularHomeIcon()
+          // if (route.path === '/') filledHomeIcon()
+          // else regularHomeIcon()
             
-          if (route.path === '/profile') filledProfileIcon()
+          if (route.path === '/') filledProfileIcon()
           else regularProfileIcon()
 
           if (route.path === '/destinations') filledDestinationsIcon()
