@@ -2,8 +2,8 @@
     <div class="banner banner-background">
         <div class="text-container"> 
             <p class="title">
-                <span v-if="route.path === '/'">Home</span>
-                <span v-if="route.path === '/profile'">Profile</span>
+                <span v-if="route.path === '/'">Profile</span>
+                <!-- <span v-if="route.path === '/profile'">Profile</span> -->
                 <span v-if="route.path === '/destinations'">Destinations</span>
                 <span v-if="route.path === '/itinerary'">Itinerary</span>
                 <span v-if="route.path === '/weather'">Weather</span>

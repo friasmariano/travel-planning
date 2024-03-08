@@ -1,38 +1,42 @@
+<script setup>
+    const burger = useBurgerMenuStore()
+
+    // watch(burger, (newValue) => {
+    //     if
+    // })
+</script>
+
 <template>
-    <div class="burger-menu">
-        <div>
-            <p class="user-summary">
-                <img class="h-10 w-10 rounded-full" 
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
-                        alt=""
-                        style="box-shadow: 0px 3px 7px 0px rgba(53, 53, 53, 0.25);">
-                <span class="user-name">John Doe</span>
-            </p>
-            <div class="separator"></div>
-            <div class="actions-list">
-                <button class="c-button is-blue">
-                    <i class="bi bi-person" style="margin-right: 5px;"></i>
-                    Profile
-                </button>
-                <button class="c-button is-light" style="margin-bottom: 12px;">
-                    <i class="bi bi-body-text" style="margin-right: 5px;"></i>
-                    Activity Log
-                </button>
+    <Transition>
+        <div v-if="burger.active" class="burger-menu">
+            <div>
+                <p class="user-summary">
+                    <img class="h-10 w-10 rounded-full" 
+                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
+                            alt=""
+                            style="box-shadow: 0px 3px 7px 0px rgba(53, 53, 53, 0.25);">
+                    <span class="user-name">John Doe</span>
+                </p>
                 <div class="separator"></div>
-                <button class="c-button is-red" style="margin-top: 20px;">
-                    <i class="bi bi-box-arrow-in-left" style="margin-right: 5px;"></i>
-                    Logout
-                </button>
+                <div class="actions-list">
+                    <button class="c-button is-blue">
+                        <i class="bi bi-person" style="margin-right: 5px;"></i>
+                        Profile
+                    </button>
+                    <button class="c-button is-light" style="margin-bottom: 12px;">
+                        <i class="bi bi-body-text" style="margin-right: 5px;"></i>
+                        Activity Log
+                    </button>
+                    <div class="separator"></div>
+                    <button class="c-button is-red" style="margin-top: 20px;">
+                        <i class="bi bi-box-arrow-in-left" style="margin-right: 5px;"></i>
+                        Logout
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    </Transition>
 </template>
-
-<script>
-    export default {
-        
-    }
-</script>
 
 <style lang="scss" scoped>
 .user-summary {
@@ -94,5 +98,15 @@
     flex-direction: column;
 
     padding-top: 30px;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
