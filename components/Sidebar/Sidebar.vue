@@ -15,6 +15,7 @@
       class="button"
       @click="goProfile"
       :class="{ 'active-route': route.path === '/'}"
+      data-testid="/"
       @mouseover="filledProfileIcon"
       @mouseleave="regularProfileIcon"
     >
@@ -26,6 +27,7 @@
       class="button"
       @click="goDestinations"
       :class="{ 'active-route': route.path === '/destinations'}"
+      data-testid="/destinations"
       @mouseover="filledDestinationsIcon"
       @mouseleave="regularDestinationsIcon"
     >
@@ -37,6 +39,7 @@
       class="button"
       @click="goItinerary"
       :class="{ 'active-route': route.path === '/itinerary'}"
+      data-testid="/itinerary"
       @mouseover="filledItineraryIcon"
       @mouseleave="regularItineraryIcon"
     >
@@ -48,6 +51,7 @@
       class="button"
       @click="goWeather"
       :class="{ 'active-route': route.path === '/weather'}"
+      data-testid="/weather"
       @mouseover="filledWeatherIcon"
       @mouseleave="regularWeatherIcon"
     >
@@ -59,6 +63,7 @@
       class="button"
       @click="goRecommendations"
       :class="{ 'active-route': route.path === '/recommendations'}"
+      data-testid="/recommendations"
       @mouseover="filledRecommendationsIcon"
       @mouseleave="regularRecommendationsIcon"
     >
