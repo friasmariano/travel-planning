@@ -3,9 +3,16 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
             ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }], 
-            '@nuxt/devtools' ],
+            '@nuxt/devtools',
+            '@nuxt/test-utils/module'
+          ],
   pinia: {
     storesDirs: ['./stores/**'],
+  },
+  vite: {
+    optimizeDeps: {
+      include: ['vue-router']
+    }
   },
   css: ['~/assets/css/main.css'],
   postcss: {

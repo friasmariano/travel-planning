@@ -1,173 +1,3 @@
-
-<script setup>
-import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-
-let homeIcon = ref('bi bi-house');
-let profileIcon = ref('bi bi-person');
-let destinationsIcon = ref('bi bi-pin-map');
-let itineraryIcon = ref('bi bi-calendar4-event');
-let weatherIcon = ref('bi bi-cloud-sun');
-let recommendationsIcon = ref('bi bi-lightbulb');
-
-let currentWidth = ref(0);
-let currentHeight = ref(0);
-
-const route = useRoute();
-const router = useRouter();
-
-const trackSize = () => {
-    currentWidth.value = window.innerWidth;
-    currentHeight.value = window.innerHeight;
-}
-
-const onResize = (event) => {
-    trackSize();
-}
-
-// Routing
-const goHome = () => {
-  router.push('/')
-}
-
-const goProfile = () => {
-  router.push('/')
-}
-
-const goDestinations = () => {
-  router.push('/destinations')
-}
-
-const goItinerary = () => {
-  router.push('/itinerary')
-}
-
-const goWeather = () => {
-  router.push('/weather')
-}
-
-const goRecommendations = () => {
-  router.push('/recommendations')
-}
-
-/////////////////////////////////////////////////////
-
-onMounted(() => {
-    window.addEventListener('resize', onResize);
-    
-    trackSize();
-
-    setIcons();
-
-    setIconsByRoute();
-})
-
-onBeforeUnmount(() => {
-    window.removeEventListener('resize', onResize);
-})
-
-let isSmall = ref(false)
-
-// Home icon
-const filledHomeIcon = () => {
-    homeIcon.value = "bi bi-house-fill";
-}
-const regularHomeIcon = () => {
-  // if (route.path !== '/') homeIcon.value = "bi bi-house";
-}
-
-// Profile icon
-const filledProfileIcon = () => {
-    profileIcon.value = "bi bi-person-fill";
-}
-const regularProfileIcon = () => {
-  // if (route.path !== '/') profileIcon.value = "bi bi-person";
-}
-
-// Destinations icon
-const filledDestinationsIcon = () => {
-    destinationsIcon.value = "bi bi-pin-map-fill";
-}
-const regularDestinationsIcon = () => {
-  // if (route.path !== '/destinations') destinationsIcon.value = "bi bi-pin-map";
-}
-
-// Itinerary icon
-const filledItineraryIcon = () => {
-    itineraryIcon.value = "bi bi-calendar-event-fill";
-}
-const regularItineraryIcon = () => {
-    // if (route.path !== '/itinerary') itineraryIcon.value = "bi bi-calendar4-event";
-}
-
-// Weather icon
-const filledWeatherIcon = () => {
-    weatherIcon.value = "bi bi-cloud-sun-fill";
-}
-const regularWeatherIcon = () => {
-    // if (route.path !== '/weather') weatherIcon.value = "bi bi-cloud-sun";
-}
-
-// Recommendations icon
-const filledRecommendationsIcon = () => {
-    recommendationsIcon.value = "bi bi-lightbulb-fill";
-}
-const regularRecommendationsIcon = () => {
-    // if (route.path !== '/recommendations') recommendationsIcon.value = "bi bi-lightbulb";
-}
-
-const setFilledIcons = () => {
-    filledHomeIcon()
-    filledProfileIcon()
-    filledDestinationsIcon()
-    filledItineraryIcon()
-    filledWeatherIcon()
-    filledRecommendationsIcon()
-}
-
-
-const setIcons = () => {
-    if (currentWidth.value <= 1024) {
-        setFilledIcons()
-
-        isSmall.value = true
-    } else {
-        isSmall.value = false
-        setIconsByRoute()
-    }
-}
-
-watch(currentWidth, (newValue) => {
-  setIcons()
-})
-
-const setIconsByRoute = () => {
-  // if (route.path === '/') filledHomeIcon()
-  // else regularHomeIcon()
-    
-  // if (route.path === '/') filledProfileIcon()
-  // else regularProfileIcon()
-
-  // if (route.path === '/destinations') filledDestinationsIcon()
-  // else regularDestinationsIcon()
-
-  // if (route.path === '/itinerary') {
-  //   filledItineraryIcon()
-  // }
-  // else regularItineraryIcon()
-
-  // if (route.path === '/weather') filledWeatherIcon()
-  // else regularWeatherIcon()
-
-  // if (route.path === '/recommendations') filledRecommendationsIcon()
-  // else regularRecommendationsIcon()
-}
-
-watch(route, (newValue) => {
-  setIconsByRoute()
-})
-</script>
-
 <template>
   <div class="sidebar">
     <!-- <button
@@ -247,6 +77,224 @@ watch(route, (newValue) => {
     </button>
   </div>
 </template>
+
+<script>
+import { onMounted, onBeforeUnmount, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
+export default {
+  setup() {
+    let homeIcon = ref('bi bi-house');
+    let profileIcon = ref('bi bi-person');
+    let destinationsIcon = ref('bi bi-pin-map');
+    let itineraryIcon = ref('bi bi-calendar4-event');
+    let weatherIcon = ref('bi bi-cloud-sun');
+    let recommendationsIcon = ref('bi bi-lightbulb');
+
+    let currentWidth = ref(0);
+    let currentHeight = ref(0);
+
+    const route = useRoute();
+    const router = useRouter();
+
+    const trackSize = () => {
+        currentWidth.value = window.innerWidth;
+        currentHeight.value = window.innerHeight;
+    }
+
+    const onResize = (event) => {
+        trackSize();
+    }
+
+    // Routing
+    const goHome = () => {
+      router.push('/')
+    }
+
+    const goProfile = () => {
+      router.push('/')
+    }
+
+    const goDestinations = () => {
+      router.push('/destinations')
+    }
+
+    const goItinerary = () => {
+      router.push('/itinerary')
+    }
+
+    const goWeather = () => {
+      router.push('/weather')
+    }
+
+    const goRecommendations = () => {
+      router.push('/recommendations')
+    }
+
+    /////////////////////////////////////////////////////
+
+    onMounted(() => {
+        window.addEventListener('resize', onResize);
+        
+        trackSize();
+
+        setIcons();
+
+        setIconsByRoute();
+    })
+
+    onBeforeUnmount(() => {
+        window.removeEventListener('resize', onResize);
+    })
+
+    let isSmall = ref(false)
+
+    // Home icon
+    const filledHomeIcon = () => {
+        homeIcon.value = "bi bi-house-fill";
+    }
+    const regularHomeIcon = () => {
+      // if (route.path !== '/') homeIcon.value = "bi bi-house";
+    }
+
+    // Profile icon
+    const filledProfileIcon = () => {
+        profileIcon.value = "bi bi-person-fill";
+    }
+    const regularProfileIcon = () => {
+      // if (route.path !== '/') profileIcon.value = "bi bi-person";
+    }
+
+    // Destinations icon
+    const filledDestinationsIcon = () => {
+        destinationsIcon.value = "bi bi-pin-map-fill";
+    }
+    const regularDestinationsIcon = () => {
+      // if (route.path !== '/destinations') destinationsIcon.value = "bi bi-pin-map";
+    }
+
+    // Itinerary icon
+    const filledItineraryIcon = () => {
+        itineraryIcon.value = "bi bi-calendar-event-fill";
+    }
+    const regularItineraryIcon = () => {
+        // if (route.path !== '/itinerary') itineraryIcon.value = "bi bi-calendar4-event";
+    }
+
+    // Weather icon
+    const filledWeatherIcon = () => {
+        weatherIcon.value = "bi bi-cloud-sun-fill";
+    }
+    const regularWeatherIcon = () => {
+        // if (route.path !== '/weather') weatherIcon.value = "bi bi-cloud-sun";
+    }
+
+    // Recommendations icon
+    const filledRecommendationsIcon = () => {
+        recommendationsIcon.value = "bi bi-lightbulb-fill";
+    }
+    const regularRecommendationsIcon = () => {
+        // if (route.path !== '/recommendations') recommendationsIcon.value = "bi bi-lightbulb";
+    }
+
+    const setFilledIcons = () => {
+        filledHomeIcon()
+        filledProfileIcon()
+        filledDestinationsIcon()
+        filledItineraryIcon()
+        filledWeatherIcon()
+        filledRecommendationsIcon()
+    }
+
+
+    const setIcons = () => {
+        if (currentWidth.value <= 1024) {
+            setFilledIcons()
+
+            isSmall.value = true
+        } else {
+            isSmall.value = false
+            setIconsByRoute()
+        }
+    }
+
+    watch(currentWidth, (newValue) => {
+      setIcons()
+    })
+
+    const setIconsByRoute = () => {
+      // if (route.path === '/') filledHomeIcon()
+      // else regularHomeIcon()
+        
+      // if (route.path === '/') filledProfileIcon()
+      // else regularProfileIcon()
+
+      // if (route.path === '/destinations') filledDestinationsIcon()
+      // else regularDestinationsIcon()
+
+      // if (route.path === '/itinerary') {
+      //   filledItineraryIcon()
+      // }
+      // else regularItineraryIcon()
+
+      // if (route.path === '/weather') filledWeatherIcon()
+      // else regularWeatherIcon()
+
+      // if (route.path === '/recommendations') filledRecommendationsIcon()
+      // else regularRecommendationsIcon()
+    }
+
+    watch(route, (newValue) => {
+      setIconsByRoute()
+    })
+
+
+    return {
+      homeIcon,
+      profileIcon,
+      destinationsIcon,
+      itineraryIcon,
+      weatherIcon,
+      recommendationsIcon,
+
+      currentWidth,
+      currentHeight,
+
+      route,
+      router,
+
+      trackSize,
+      onResize,
+      goHome,
+      goProfile,
+      goDestinations,
+      goItinerary,
+      goWeather,
+      goRecommendations,
+
+      isSmall,
+
+      filledHomeIcon,
+      regularHomeIcon,
+
+      filledProfileIcon,
+      regularProfileIcon,
+      filledDestinationsIcon,
+      regularDestinationsIcon,
+      filledItineraryIcon,
+      regularItineraryIcon,
+      filledWeatherIcon,
+      filledRecommendationsIcon,
+      regularRecommendationsIcon,
+
+      setFilledIcons,
+      setIcons,
+
+      setIconsByRoute
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .button {
