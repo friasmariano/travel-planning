@@ -23,6 +23,7 @@
 
     <button
       class="button"
+      :class="{ 'active-route': route.path === '/'}"
       @click="goProfile"
       data-testid="/"
       @mouseover="filledProfileIcon"
@@ -108,27 +109,27 @@ export default {
 
     // Routing
     const goHome = () => {
-      router.push('/')
+      $router.push('/')
     }
 
     const goProfile = () => {
-      router.push('/')
+      $router.push('/')
     }
 
     const goDestinations = () => {
-      router.push('/destinations')
+      $router.push('/destinations')
     }
 
     const goItinerary = () => {
-      router.push('/itinerary')
+      $router.push('/itinerary')
     }
 
     const goWeather = () => {
-      router.push('/weather')
+      $router.push('/weather')
     }
 
     const goRecommendations = () => {
-      router.push('/recommendations')
+      $router.push('/recommendations')
     }
 
     /////////////////////////////////////////////////////
@@ -244,9 +245,9 @@ export default {
       // else regularRecommendationsIcon()
     }
 
-    watch(route, (newValue) => {
-      setIconsByRoute()
-    })
+    // watch(route, (newValue) => {
+    //   setIconsByRoute()
+    // })
 
 
     return {
