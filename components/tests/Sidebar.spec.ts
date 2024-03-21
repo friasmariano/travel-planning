@@ -1,19 +1,50 @@
 
-import { beforeEach, describe, expect, test, vi } from 'vitest';
-import { useRouter } from 'vue-router'
+import { describe, expect, test } from 'vitest';
+import { createRouter, createWebHistory } from 'vue-router'
 import { mount } from '@vue/test-utils'
 import Sidebar from '../Sidebar.vue';
 
-vi.mock('vue-router')
+const routes = [
+  {
+    path: '/',
+    component: {
+      template: ''
+    }
+  },
+  {
+    path: '/destinations',
+    component: {
+      template: ''
+    }
+  },
+  {
+    path: '/itinerary',
+    component: {
+      template: ''
+    }
+  },{
+    path: '/recommendations',
+    component: {
+      template: ''
+    }
+  },
+  {
+    path: '/weather',
+    component: {
+      template: ''
+    }
+  }
+]
+
+const mockRouter = createRouter({ history: createWebHistory(), routes: routes })
 
 describe('Sidebar', () => {
 
   test('Renders the correct number of buttons', async () => {
-    const VueRouter = await import('vue-router')
     // Wrapper
     const buttons = mount(Sidebar, {
       global: {
-       plugins: [useRouter]
+       plugins: [mockRouter]
       }
     }).findAll('button')
 
