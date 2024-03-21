@@ -1,9 +1,5 @@
 <script setup>
     const burger = useBurgerMenuStore()
-
-    // watch(burger, (newValue) => {
-    //     if
-    // })
 </script>
 
 <template>

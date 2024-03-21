@@ -1,47 +1,17 @@
 
 import { describe, expect, test } from 'vitest';
-import { createMemoryHistory, createRouter, createWebHistory } from 'vue-router'
+import { createMemoryHistory, createRouter } from 'vue-router'
 import { mount } from '@vue/test-utils'
 import Sidebar from '../Sidebar.vue';
-
-const routes = [
-  {
-    path: '/',
-    component: {
-      template: ''
-    }
-  },
-  {
-    path: '/destinations',
-    component: {
-      template: ''
-    }
-  },
-  {
-    path: '/itinerary',
-    component: {
-      template: ''
-    }
-  },{
-    path: '/recommendations',
-    component: {
-      template: ''
-    }
-  },
-  {
-    path: '/weather',
-    component: {
-      template: ''
-    }
-  }
-]
+import routes from './router/routes';
 
 const router = createRouter({ history: createMemoryHistory(), routes: routes })
 
 describe('Sidebar', () => {
 
   test('Renders the correct number of buttons', async () => {
-    const wrapper = mount(Sidebar, { global: { plugins: [router] }})
+    const wrapper = mount(Sidebar, 
+                          { global: { plugins: [router] }})
                     .findAll('button')
 
     expect(wrapper.length).toBe(5)

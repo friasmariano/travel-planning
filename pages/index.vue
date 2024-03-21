@@ -3,7 +3,7 @@
       <!-- Hello {{ user.name }} -->
       <!-- <div>Current Count: {{ counter.count }}</div> -->
       <!-- <button class="c-button is-blue">Call Store</button> -->
-      <p>{{ $hello(user.name ) }}</p>
+      <!-- <p>{{ $hello(user.name ) }}</p> -->
       <!-- <p>{{ $route.path }}</p> -->
 
       <!-- <p>{{ $currentRoute }}</p> -->
