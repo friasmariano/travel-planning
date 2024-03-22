@@ -1,7 +1,3 @@
-<script setup>
-    const burger = useBurgerMenuStore()
-</script>
-
 <template>
     <Transition>
         <div v-if="burger.active" class="burger-menu">
@@ -15,16 +11,16 @@
                 </p>
                 <div class="separator"></div>
                 <div class="actions-list">
-                    <button class="c-button is-blue">
+                    <button id="profileButton" class="c-button is-blue">
                         <i class="bi bi-person" style="margin-right: 5px;"></i>
                         Profile
                     </button>
-                    <button class="c-button is-light" style="margin-bottom: 12px;">
+                    <button id="activityButton" class="c-button is-light" style="margin-bottom: 12px;">
                         <i class="bi bi-body-text" style="margin-right: 5px;"></i>
                         Activity Log
                     </button>
                     <div class="separator"></div>
-                    <button class="c-button is-red" style="margin-top: 20px;">
+                    <button id="logoutButton" class="c-button is-red" style="margin-top: 20px;">
                         <i class="bi bi-box-arrow-in-left" style="margin-right: 5px;"></i>
                         Logout
                     </button>
@@ -33,6 +29,21 @@
         </div>
     </Transition>
 </template>
+
+<script>
+import { useBurgerMenuStore } from '@/stores/burgerMenu'
+
+export default {
+    setup() {
+
+        const burger = useBurgerMenuStore()
+
+        return {
+            burger
+        }
+    }
+}
+</script>
 
 <style lang="scss" scoped>
 .user-summary {
