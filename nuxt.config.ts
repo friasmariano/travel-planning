@@ -21,7 +21,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-plugins: ['~/plugins/fontawesome.js'],
+plugins: ['~/plugins/fontawesome.js', '~/plugins/helpers.ts'],
   imports: {
     dirs: ['stores']
   }

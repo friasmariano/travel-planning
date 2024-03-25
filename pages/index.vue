@@ -10,22 +10,19 @@
     </div>
 </template>
 
-<script>
+<script setup>
 // import { useCounterStore } from '@/stores/counter'
 import { useUserStore } from '@/stores/user'
 import { useRouterStore } from '@/stores/routerStore'
+import { onMounted } from 'vue'
 
-export default {
-  setup() {
     const user = useUserStore()
     const routerStore = useRouterStore()
+    const { $helpers } = useNuxtApp()
 
-    return {
-      user,
-      routerStore
-    }
-  }
-}
+    onMounted(() => {
+      // console.log($helpers.fullDate())
+    })
 </script>
   
 <style lang="scss" scoped>
