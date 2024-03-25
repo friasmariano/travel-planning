@@ -24,7 +24,6 @@ describe('BurgerMenu', async () => {
 
     test('It has action buttons', () => {
         const buttons = wrapper.findAll('button')
-
         expect(buttons.length).toBe(3)
     })
 
@@ -41,4 +40,6 @@ describe('BurgerMenu', async () => {
         expect(logoutButton.classes()).toContain('c-button')
         expect(logoutButton.classes()).toContain('is-red');
     })
+
+    // Add tests for burger menu actions
 })
