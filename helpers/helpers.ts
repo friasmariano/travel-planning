@@ -1,20 +1,27 @@
 import { getDate, getMonth, getYear } from 'date-fns'
+import { ref } from 'vue'
 
 const helloWorld = () => {
     console.log('Hello World')
 }
 
-const fullDate = () => {
-    let day: String = getDate(new Date()).toString();
-    let month: String = (getMonth(new Date()) + 1).toString();
+export const fullDate = () => {
+    let day = ref(getDate(new Date()).toString());
+    let month = ref((getMonth(new Date()) + 1).toString());
 
-    if (getDate(new Date()) < 10) day = '0' + day
-    if (getMonth(new Date()) < 10) month = '0' + month
+    if (getDate(new Date()) < 10) day.value = '0' + day
+    if (getMonth(new Date()) < 10) month.value = '0' + month
 
-    return day + '-' + month + '-' + getYear(new Date())
+    let full = ref(day + '-' + month + '-' + getYear(new Date()));
+
+    return full
+
 }
 
-export default {
-    helloWorld,
-    fullDate
-}
+export function useCounter() {
+    // create a reactive variable
+    const count = ref(0);
+  
+    // return the reactive variable and function
+    return { count };
+  }

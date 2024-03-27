@@ -1,13 +1,5 @@
 <template>
-    <div>
-      <!-- Hello {{ user.name }} -->
-      <!-- <div>Current Count: {{ counter.count }}</div> -->
-      <!-- <button class="c-button is-blue">Call Store</button> -->
-      <!-- <p>{{ $hello(user.name ) }}</p> -->
-      <!-- <p>{{ $route.path }}</p> -->
-
-      <!-- <p>{{ $currentRoute }}</p> -->
-    </div>
+    <div> </div>
 </template>
 
 <script setup>
@@ -15,13 +7,16 @@
 import { useUserStore } from '@/stores/user'
 import { useRouterStore } from '@/stores/routerStore'
 import { onMounted } from 'vue'
+import { fullDate } from '~/helpers/helpers'
 
     const user = useUserStore()
     const routerStore = useRouterStore()
     const { $helpers } = useNuxtApp()
 
+    const { full } = fullDate()
+
     onMounted(() => {
-      // console.log($helpers.fullDate())
+      console.log(full)
     })
 </script>
   
