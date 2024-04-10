@@ -118,6 +118,10 @@ footer {
     /* background-color: teal; */
 }
 
+.has-box-shadow {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 600px) {
     aside {
         width: 100px;

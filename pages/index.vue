@@ -1,45 +1,96 @@
 <template>
-    <div class="user-card">
-      <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
-           style="width: 70px; height: 70px; border-radius: 50%;"
-           alt="User photo">
+  <div class="user-card has-box-shadow">
+    <div class="user-header">
+      <img
+        src="/img/UserPhoto.png"
+        style="width: 100px; height: 100px; border-radius: 50%"
+        alt="User photo"
+      />
+      <div class="user-summary">
+        <p>Mariano Frías</p>
+        <p style="font-size: 1.05rem; padding: 0px; margin: 0px">
+          Dominican Republic
+        </p>
+      </div>
     </div>
+    <div class="user-info">
+      <p><b>Country of Origin:</b> Dominican Republic</p>
+      <p><b>Email:</b> frias.mariano@gmail.com</p>
+      <p><b>Username:</b> frias.mariano</p>
+      <p><b>Location:</b> Dominican Republic</p>
+      <p><b>Gender:</b> Male</p>
+      <p><b>Date of Birth:</b> 03-16-1990</p>
+    </div>
+  </div>
 </template>
 
 <script setup>
 // import { useCounterStore } from '@/stores/counter'
-import { useUserStore } from '@/stores/user'
-import { useRouterStore } from '@/stores/routerStore'
-import { onMounted } from 'vue'
-import { fullDate } from '~/helpers/helpers'
+import { useUserStore } from "@/stores/user";
+import { useRouterStore } from "@/stores/routerStore";
+import { onMounted } from "vue";
+import { fullDate } from "~/helpers/helpers";
 
-    const user = useUserStore()
-    const routerStore = useRouterStore()
-    const { $helpers } = useNuxtApp()
+const user = useUserStore();
+const routerStore = useRouterStore();
+const { $helpers } = useNuxtApp();
 
-    const { full } = fullDate()
+const { full } = fullDate();
 
-    onMounted(() => {
-      console.log(full)
-    })
+onMounted(() => {
+  console.log(full);
+});
 </script>
-  
+
 <style lang="scss" scoped>
 .user-card {
-  margin-left: 15px; 
-  margin-right: auto;
-
-  display: flex;
-  align-items: left;
-  justify-content: left;
+  margin-left: 15px;
+  margin-right: 15px;
 
   padding-top: 30px;
   padding-left: 30px;
-  padding-bottom: 30px;
-  
-  background-color: white;
-  border: 1px solid red;
-  border-radius: 10px;
+  padding-bottom: 40px;
 
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  border-radius: 10px;
+}
+
+.user-header {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.user-summary {
+  padding: 20px;
+  font-size: 1.4rem;
+  color: rgb(107, 107, 107);
+  font-weight: 400;
+}
+
+.user-info {
+  padding-left: 120px;
+  padding-top: 10px;
+}
+
+@media (max-width: 673px) {
+  .user-header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .user-info {
+    padding-left: 0px;
+    padding-top: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+  }
 }
 </style>
