@@ -19,8 +19,6 @@
     "@vue/test-utils": "^2.4.5",
     "axios": "^1.6.8",
     "date-fns": "^3.6.0",
-    "firebase": "^10.11.0",
-    "firebase-tools": "^13.7.1",
     "happy-dom": "^13.8.6",
     "node-fetch": "^3.3.2",
     "pinia": "^2.1.7",
