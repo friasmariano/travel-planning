@@ -1,75 +1,27 @@
-# Nuxt 3 Minimal Starter
+<h1>Travel Planning App</h1>
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+<h3>Descripción</h3>
+Este proyecto es una aplicación de planificación de viajes, diseñada con Nuxt 3. La app permite a los usuarios organizar itinerarios, consultar recomendaciones y revisar el clima para diferentes destinos.
 
-## Setup
+<h3>Características:</h3>
+Gestión del estado: Implementado con Pinia. <br />
+ <br />
+Componentes clave: <br />
+Páginas de destinos, perfil, itinerario, clima y recomendaciones. <br />
+Barra de navegación con un botón de perfil funcional. <br />
+Logotipo personalizado y banners con títulos dinámicos según la ruta. <br />
+Diseño y layout: Cada página incluye un banner con el título según la ruta actual. <br />
+ <br />
+<h3>Estado del Proyecto </h3>
+Este proyecto está en progreso. Actualmente, se está trabajando en la integración del backend y la API para manejar datos dinámicos.
+<br />
+<br />
 
-Make sure to install the dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+<h3>Instalación</h3>
+Clonar el repositorio: <br />
+git clone https://github.com/friasmariano/travel-planning.git <br />
+ <br /> 
+<h3>Instalar dependencias:</h3>
+npm install <br />
+Ejecutar localmente: <br />
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
