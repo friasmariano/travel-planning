@@ -1,12 +1,15 @@
+<script setup>
+    definePageMeta({
+        layout: 'default',
+    })
+</script>
+
 <template>
     <div>
 
     </div>
 </template>
 
-<script setup>
-
-</script>
 
 <style lang="scss" scoped>
 

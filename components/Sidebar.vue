@@ -333,15 +333,10 @@ export default {
 }
 
 .sidebar {
-  height: 90vh;
   width: 290px;
 
   padding-left: 0px;
   padding-top: 50px;
-
-  background-color: rgb(244, 244, 244);
-
-  box-shadow: 0.5px 0px 20px rgba(0, 0, 0, 0.2);
 }
 
 .button-text {

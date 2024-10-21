@@ -1,3 +1,25 @@
+
+<script setup>
+definePageMeta({
+  layout: 'default',
+});
+
+import { useUserStore } from "@/stores/user";
+import { useRouterStore } from "@/stores/routerStore";
+import { onMounted } from "vue";
+import { fullDate } from "~/helpers/helpers";
+
+const user = useUserStore();
+const routerStore = useRouterStore();
+const { $helpers } = useNuxtApp();
+
+const { full } = fullDate();
+
+onMounted(() => {
+  console.log(full);
+});
+</script>
+
 <template>
   <div class="user-card has-box-shadow">
     <div class="user-header">
@@ -23,24 +45,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-// import { useCounterStore } from '@/stores/counter'
-import { useUserStore } from "@/stores/user";
-import { useRouterStore } from "@/stores/routerStore";
-import { onMounted } from "vue";
-import { fullDate } from "~/helpers/helpers";
-
-const user = useUserStore();
-const routerStore = useRouterStore();
-const { $helpers } = useNuxtApp();
-
-const { full } = fullDate();
-
-onMounted(() => {
-  console.log(full);
-});
-</script>
 
 <style lang="scss" scoped>
 .user-card {
