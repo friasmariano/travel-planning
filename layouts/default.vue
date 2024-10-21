@@ -21,22 +21,44 @@
 </template>
 
 <style lang="scss" scoped>
-.grid-layout {
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 0px;
+@media (min-width: 601px) {
+    .grid-layout {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 0px;
 
-    grid-template-areas: 
-        "header header header"
-        "aside banner banner"
-        "aside content content"
-        "aside content content"
-        "footer footer footer";
+        grid-template-areas: 
+            "header header header"
+            "aside banner banner"
+            "aside content content"
+            "aside content content"
+            "footer footer footer";
 
-    grid-template-rows: auto auto 1fr auto auto;
+        grid-template-rows: auto auto 1fr auto auto;
 
-    height: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-layout {
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 0px;
+
+        grid-template-areas: 
+            "header header header"
+            "banner banner"
+            "content content"
+            "   content content"
+            "footer footer footer";
+
+        grid-template-rows: auto auto 1fr auto auto;
+
+        height: 100%;
+    }
 }
 
 header {
@@ -61,7 +83,7 @@ aside {
     grid-area: aside;
 
     color: hsl(192, 0%, 80%);
-    
+
     background-color: rgb(244, 244, 244);
 
     box-shadow: 0.5px 0px 20px rgba(0, 0, 0, 0.2);
