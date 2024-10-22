@@ -1,9 +1,5 @@
 
 <script setup>
-definePageMeta({
-  layout: 'default',
-});
-
 import { useUserStore } from "@/stores/user";
 import { useRouterStore } from "@/stores/routerStore";
 import { onMounted } from "vue";
@@ -14,6 +10,17 @@ const routerStore = useRouterStore();
 const { $helpers } = useNuxtApp();
 
 const { full } = fullDate();
+
+definePageMeta({
+  layout: 'default',
+  middleware: () => {
+    const localStore = useLocalStore();
+
+    if (!localStore.isLoggedIn) {
+      return navigateTo('/login');
+    }
+  }
+});
 
 onMounted(() => {
   console.log(full);

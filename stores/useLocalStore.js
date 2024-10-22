@@ -1,4 +1,3 @@
-import { defineStore } from 'pinia';
 
 export const useLocalStore = defineStore('main', {
   state: () => ({
@@ -9,8 +8,6 @@ export const useLocalStore = defineStore('main', {
   actions: {
     setToken(value) {
       this.token = value;
-
-      this.isLoggedIn = true;
     },
     setLoginStatus() {
       this.isLoggedIn = !this.isLoggedIn;

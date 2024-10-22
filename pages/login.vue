@@ -13,13 +13,13 @@ const router = useRouter()
 
 definePageMeta({
   layout: 'public',
-  middleware: [
-    function(to, from) {
-        if (localStore.isLoggedIn) {
-            router.push('/')
-        }
+  middleware: () => {
+    const localStore = useLocalStore();
+
+    if (useRoute().path === '/login' && localStore.isLoggedIn) {
+      return navigateTo('/');
     }
-  ]
+  }
 })
 
 onMounted(() => {
@@ -69,6 +69,7 @@ const submit = async () => {
         .catch(function (error) {
             console.log(error);
             setTimeout(() => { clearErrors() }, 5000);
+            alert('Hubo un error al procesar la solicitud.')
         });
     } 
     else {
@@ -98,8 +99,7 @@ const submit = async () => {
                       }"
                       type="text" 
                       id="email" 
-                      name="email" 
-                      placeholder="micorreo@dominio.com"
+                      name="email"
                       @change="v$.email.$touch" />
             </div>
             <div class="loginSection" style="margin-top: 20px;">
@@ -112,6 +112,7 @@ const submit = async () => {
                       type="password" 
                       id="password" 
                       name="password"
+                      placeholder=""
                       @change="v$.password.$touch" />
             </div>
             <div class="loginSection" style="margin-top: 20px;">

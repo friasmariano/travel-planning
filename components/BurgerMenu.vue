@@ -1,11 +1,14 @@
 <script setup>
 import { useBurgerMenuStore } from '@/stores/burgerMenu'
 import { useLocalStore } from '@/stores/useLocalStore'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const localStore = useLocalStore()
 
 const logout = () => {
     localStore.logout()
+    router.replace('/login')
 }
 
 const burger = useBurgerMenuStore()
