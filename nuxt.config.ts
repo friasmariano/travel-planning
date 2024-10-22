@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   modules: [
             ['@pinia/nuxt', { autoImports: ['defineStore', 'acceptHMRUpdate'] }], 
             '@nuxt/devtools',
-            '@nuxt/test-utils/module'
+            '@nuxt/test-utils/module',
+            'pinia-plugin-persistedstate/nuxt',
           ],
 
   pinia: {

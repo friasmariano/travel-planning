@@ -4,9 +4,26 @@ import axios from 'axios'
 import { required, email, sameAs, minLength, helpers } from '@vuelidate/validators'
 import { useVuelidate } from '@vuelidate/core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { useLocalStore } from '@/stores/useLocalStore'
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const localStore = useLocalStore()
+const router = useRouter()
 
 definePageMeta({
   layout: 'public',
+  middleware: [
+    function(to, from) {
+        if (localStore.isLoggedIn) {
+            router.push('/')
+        }
+    }
+  ]
+})
+
+onMounted(() => {
+    // console.log('Token default value:' + localStore.token)
 })
 
 const formData =  reactive({
@@ -34,17 +51,23 @@ const clearErrors = () => {
     errors.value = []
 }
 
+const submit = async () => {
+    const local = this
 
-const submit = () => {
     v$.value.$validate();
     if (!v$.value.$error) {
-        axios.post('http://localhost:5021/Login?Email='+formData.email+'&'+'Password='+formData.password)
+        await axios.post('http://localhost:5021/Login?Email='+formData.email+'&'+'Password='+formData.password)
         .then(function (response) {
-            console.log(response);
+            const token = response.data.token;
+            console.log(response.data.token);
+
+            localStore.setToken(token);
+            localStore.setLoginStatus();
+
+            router.push('/')
         })
         .catch(function (error) {
-            console.log(error.response.data.errors);
-            errors.value = error.response.data.errors;
+            console.log(error);
             setTimeout(() => { clearErrors() }, 5000);
         });
     } 

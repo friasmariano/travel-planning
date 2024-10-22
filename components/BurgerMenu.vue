@@ -1,3 +1,17 @@
+<script setup>
+import { useBurgerMenuStore } from '@/stores/burgerMenu'
+import { useLocalStore } from '@/stores/useLocalStore'
+
+const localStore = useLocalStore()
+
+const logout = () => {
+    localStore.logout()
+}
+
+const burger = useBurgerMenuStore()
+
+</script>
+
 <template>
     <Transition>
         <div v-if="burger.active" class="burger-menu">
@@ -20,7 +34,11 @@
                         Activity Log
                     </button>
                     <div class="separator"></div>
-                    <button id="logoutButton" class="c-button is-red" style="margin-top: 20px;">
+                    <button 
+                            id="logoutButton" 
+                            class="c-button is-red" 
+                            style="margin-top: 20px;"
+                            @click="logout">
                         <i class="bi bi-box-arrow-in-left" style="margin-right: 5px;"></i>
                         Logout
                     </button>
@@ -29,21 +47,6 @@
         </div>
     </Transition>
 </template>
-
-<script>
-import { useBurgerMenuStore } from '@/stores/burgerMenu'
-
-export default {
-    setup() {
-
-        const burger = useBurgerMenuStore()
-
-        return {
-            burger
-        }
-    }
-}
-</script>
 
 <style lang="scss" scoped>
 .user-summary {
