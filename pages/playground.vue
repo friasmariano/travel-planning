@@ -1,5 +1,6 @@
 <script setup>
 import { useLocalStore } from '@/stores/useLocalStore'
+import Modal from '@/components/Modal.vue'
 
 definePageMeta({
   layout: 'default',
@@ -15,7 +16,7 @@ definePageMeta({
 
 <template>
     <div>
-
+      <Modal />
     </div>
 </template>
 
