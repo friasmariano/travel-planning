@@ -17,6 +17,9 @@ Este proyecto está en progreso. Actualmente, se está trabajando en la integrac
 <br />
 <br />
 
+<h3>Proyecto (demo)</h3>
+<a href="https://travel-planning-orpin.vercel.app/">Live</a>
+
 <h3>Instalación</h3>
 Clonar el repositorio: <br />
 git clone https://github.com/friasmariano/travel-planning.git <br />
