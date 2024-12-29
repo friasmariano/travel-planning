@@ -42,7 +42,7 @@ onMounted(() => {
         </p>
       </div>
     </div>
-    <button class="c-button is-blue">Change picture</button>
+    <!-- <button class="c-button is-blue">Change picture</button> -->
 
     <div class="user-info">
       <p><b>Country of Origin:</b> Dominican Republic</p>

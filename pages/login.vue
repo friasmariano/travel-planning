@@ -88,7 +88,7 @@ const submit = async () => {
         </div>
         <hr />
         <form @submit.prevent="submit">
-            <p class="loginSection" style="font-size: 1.2rem; margin-top: 20px;">Iniciar sesión</p>
+            <p class="loginSection" style="font-size: 1.2rem; margin-top: 20px;"></p>
             <div class="loginSection" style="margin-top: 30px;">
                 <label for="email">Email:</label>
                 <input 
@@ -131,7 +131,7 @@ const submit = async () => {
                 <button 
                         type="submit"
                         class="c-button is-blue"
-                        :class="{ 'disabled': v$.$invalid }">Entrar</button>
+                        :class="{ 'disabled': v$.$invalid }">Login</button>
             </div>
         </form>
     </div>

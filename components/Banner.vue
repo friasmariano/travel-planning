@@ -2,13 +2,13 @@
     <div class="banner banner-background">
         <div class="text-container"> 
             <p class="title">
-                <span v-if="route.path === '/'">Profile</span>
+                <span v-if="route.path === '/profile'">Profile</span>
                 <span v-if="route.path === '/destinations'">Destinations</span>
                 <span v-if="route.path === '/itinerary'">Itinerary</span>
                 <span v-if="route.path === '/weather'">Weather</span>
                 <span v-if="route.path === '/recommendations'">Recommendations</span>
             </p>
-            <p class="subtitle">Lorem ipsum</p>
+            <!-- <p class="subtitle">Lorem ipsum</p> -->
         </div>
     </div>
 </template>
