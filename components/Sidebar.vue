@@ -2,7 +2,7 @@
   <div class="sidebar">
     <button
       class="button"
-      :class="{ 'active-route': route.path === '/profile'}"
+      :class="{ 'active-route': route.path === '/'}"
       @click="goProfile"
       data-testid="/profile"
       @mouseover="filledProfileIcon"

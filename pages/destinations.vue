@@ -8,9 +8,9 @@ definePageMeta({
   middleware: () => {
     const localStore = useLocalStore();
 
-    if (!localStore.isLoggedIn) {
-      return navigateTo('/login');
-    }
+    // if (!localStore.isLoggedIn) {
+    //   return navigateTo('/login');
+    // }
   }
 })
 </script>
