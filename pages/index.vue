@@ -31,26 +31,31 @@ onMounted(() => {
   <div class="user-card has-box-shadow">
     <div class="user-header">
       <img
-        src="/img/UserPhoto.png"
-        style="width: 100px; height: 100px; border-radius: 50%"
+        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
+        style="width: 100px; 
+               height: 100px; 
+               
+               border-radius: 50%;
+               
+               box-shadow: 0px 3px 20px 0px rgba(53, 53, 53, 0.2);"
         alt="User photo"
       />
       <div class="user-summary">
-        <p>Mariano Frías</p>
+        <p>John Doe</p>
         <p style="font-size: 1.05rem; padding: 0px; margin: 0px">
-          Dominican Republic
+          Netherlands
         </p>
       </div>
     </div>
     <!-- <button class="c-button is-blue">Change picture</button> -->
 
     <div class="user-info">
-      <p><b>Country of Origin:</b> Dominican Republic</p>
-      <p><b>Email:</b> frias.mariano@gmail.com</p>
-      <p><b>Username:</b> frias.mariano</p>
-      <p><b>Location:</b> Dominican Republic</p>
+      <p><b>Country of Origin:</b> Netherlands</p>
+      <p><b>Email:</b> John@example.com</p>
+      <p><b>Username:</b> john.doe</p>
+      <p><b>Location:</b> Netherlands</p>
       <p><b>Gender:</b> Male</p>
-      <p><b>Date of Birth:</b> 03-16-1990</p>
+      <p><b>Date of Birth:</b> 01-01-2000</p>
     </div>
   </div>
 </template>
